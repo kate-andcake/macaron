@@ -159,6 +159,7 @@ body {
 
 /* --- second screen --- */
 .second-screen {
+    width: 390px;
     padding: 120px 14px 0 14px;
     display: flex;
     flex-direction: column;
