@@ -60,8 +60,25 @@ subtitles.forEach(title => {
             toggleActions: 'play none none reverse',
         }
     })
-    .from(title, { y: '50%', ease: 'al_slide', duration: .6 })
-    .from(title, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
+    .from(title, { y: '50%', ease: 'al_slide', duration: .7 })
+    .from(title, { ease: 'none', autoAlpha: 0, duration: .7 }, '<')
+
+})
+
+
+description_titles = gsap.utils.toArray('.description_title')
+
+description_titles.forEach(title => {
+
+    tl =  gsap.timeline({
+        scrollTrigger: {
+            trigger: title,
+            start: 'top bottom-=5%',
+            toggleActions: 'play none none reverse',
+        }
+    })
+    .from(title, { y: '50%', ease: 'al_slide', duration: .7 })
+    .from(title, { ease: 'none', autoAlpha: 0, duration: .7 }, '<')
 
 })
 
@@ -86,8 +103,9 @@ small_storys_boxes.forEach(box => {
         }
     })
     .fromTo(story_background, { autoAlpha: 1, clipPath: 'inset(0 0 100% 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
+    .set(story, { autoAlpha: 1 })
     .fromTo(story_background, { autoAlpha: 1, clipPath: 'inset(0 0 0 0)', scale: 1.2 }, { clipPath: 'inset(100% 0 0 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
-    .from(story, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
+    story.play()
 
 
 
