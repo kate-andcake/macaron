@@ -172,6 +172,7 @@ body {
     line-height: 130%;
 }
 .pare_stories_block {
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
