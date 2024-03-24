@@ -30,7 +30,7 @@ const first_screen_img_background = document.querySelector('.first-screen__img_b
 gsap.set([first_screen_video, first_screen_img, first_screen_img_background], { autoAlpha: 0 });
 
 first_screen_media_tl = gsap.timeline()
-.fromTo(first_screen_img_background, { autoAlpha: 1, clipPath: 'inset(100% 0 0 0)', scale: 1.2, }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in'})
+.fromTo(first_screen_img_background, { autoAlpha: 1, clipPath: 'inset(100% 0 0 0)', scale: 1.2, }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gglease'})
 .set(first_screen_video, { autoAlpha: 1 })
 .fromTo(first_screen_img_background, { autoAlpha: 1, clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2, }, { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in'})
 first_screen_video.play();
@@ -46,3 +46,49 @@ first_screen_content_tl =  gsap.timeline()
 .to(first_screen_label, { rotate: '-35deg', ease: 'easeOutSine', duration: .2 }, '<')
 .to(first_screen_label, { scale: 1.5, ease: 'easeInOutSine', repeat: 1, duration: .3, yoyo: true, }, '<')
 .to(first_screen_label, { rotate: '-5deg', ease: 'easeOutSine', duration: .2 }, '<.3');
+
+
+
+subtitles = gsap.utils.toArray('.subtitle')
+
+subtitles.forEach(title => {
+
+    tl =  gsap.timeline({
+        scrollTrigger: {
+            trigger: title,
+            start: 'top bottom-=5%',
+            toggleActions: 'play none none reverse',
+        }
+    })
+    .from(title, { y: '50%', ease: 'al_slide', duration: .6 })
+    .from(title, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
+
+})
+
+
+small_storys_boxes = gsap.utils.toArray('.small_story_box')
+small_storys = gsap.utils.toArray('.small_story')
+storys_backgrounds = gsap.utils.toArray('.small_story_background')
+
+gsap.set(small_storys, { autoAlpha: 0 });
+gsap.set(storys_backgrounds, { autoAlpha: 0 });
+
+small_storys_boxes.forEach(box => {
+
+    story = box.querySelector(".small_story")
+    story_background = box.querySelector(".small_story_background")
+
+    tl =  gsap.timeline({
+        scrollTrigger: {
+            trigger: box,
+            start: 'top bottom-=5%',
+            toggleActions: 'play none none reverse',
+        }
+    })
+    .fromTo(story_background, { autoAlpha: 1, clipPath: 'inset(0 0 100% 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
+    .fromTo(story_background, { autoAlpha: 1, clipPath: 'inset(0 0 0 0)', scale: 1.2 }, { clipPath: 'inset(100% 0 0 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gg_scale_out' })
+    .from(story, { ease: 'none', autoAlpha: 0, duration: .6 }, '<')
+
+
+
+})

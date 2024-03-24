@@ -185,6 +185,8 @@ body {
 }
 .small_story_box {
     position: relative;
+    overflow: hidden;
+    border-radius: 12px;
     width: 169px;
     height: 300px;
     display: flex;
