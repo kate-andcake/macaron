@@ -159,7 +159,7 @@ body {
 
 /* --- second screen --- */
 .second-screen {
-    padding: 120px 0 0 0;
+    padding: 160px 0 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -218,4 +218,42 @@ body {
     font-weight: 600;
     line-height: 120%;
     text-align: center;
+}
+/* --- second screen --- */
+
+
+/* --- third screen --- */
+.third-screen {
+    padding: 160px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.third_screen_content {
+    width: 390px;
+    padding: 0 14px 0 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.new_beneffit {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+.new_beneffit_text {
+    color: #86868B;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.16px;
+    font-weight: 600;
+    line-height: 120%;
+}
+.new_beneffit_title {
+    color: #1D1D1F;
+    font-family: "Inter", sans-serif;
+    font-size: 32px;
+    letter-spacing: -0.85px;
+    font-weight: 600;
+    line-height: 150%;
 }

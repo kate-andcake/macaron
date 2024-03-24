@@ -49,7 +49,7 @@ first_screen_content_tl =  gsap.timeline()
 
 
 
-subtitles = gsap.utils.toArray('.subtitle')
+subtitles = gsap.utils.toArray('.subtitle');
 
 subtitles.forEach(title => {
 
@@ -63,7 +63,7 @@ subtitles.forEach(title => {
     .from(title, { y: '50%', ease: 'al_slide', duration: .7 })
     .from(title, { ease: 'none', autoAlpha: 0, duration: .7 }, '<')
 
-})
+});
 
 
 description_titles = gsap.utils.toArray('.description_title')
@@ -80,7 +80,7 @@ description_titles.forEach(title => {
     .from(title, { y: '50%', ease: 'al_slide', duration: .7 })
     .from(title, { ease: 'none', autoAlpha: 0, duration: .7 }, '<')
 
-})
+});
 
 
 small_storys_boxes = gsap.utils.toArray('.small_story_box')
@@ -105,8 +105,23 @@ small_storys_boxes.forEach(box => {
     .fromTo(story_background, { autoAlpha: 1, clipPath: 'inset(0 0 100% 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
     .set(story, { autoAlpha: 1 })
     .fromTo(story_background, { autoAlpha: 1, clipPath: 'inset(0 0 0 0)', scale: 1.2 }, { clipPath: 'inset(100% 0 0 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
-    story.play()
+    story.play();
+
+});
 
 
+new_beneffits = gsap.utils.toArray('.new_beneffit');
 
-})
+new_beneffits.forEach(beneffit => {
+
+    tl =  gsap.timeline({
+        scrollTrigger: {
+            trigger: beneffit,
+            start: 'top bottom-=5%',
+            toggleActions: 'play none none reverse',
+        }
+    })
+    .from(beneffit, { y: '50%', ease: 'al_slide', duration: .7 })
+    .from(beneffit, { ease: 'none', autoAlpha: 0, duration: .7 }, '<')
+
+});
