@@ -125,3 +125,20 @@ new_beneffits.forEach(beneffit => {
     .from(beneffit, { ease: 'none', autoAlpha: 0, duration: .7 }, '<')
 
 });
+
+
+beneffits = gsap.utils.toArray('.beneffit');
+
+beneffits.forEach(beneffit => {
+
+    tl =  gsap.timeline({
+        scrollTrigger: {
+            trigger: beneffit,
+            start: 'top bottom-=5%',
+            toggleActions: 'play none none reverse',
+        }
+    })
+    .from(beneffit, { y: "25px", ease: 'al_slide', duration: .7 })
+    .from(beneffit, { ease: 'none', autoAlpha: 0, duration: .7 }, '<')
+
+});
