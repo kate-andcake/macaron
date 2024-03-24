@@ -55,7 +55,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 50px;
 }
 .first-screen__media-container {
     width: 362px;
@@ -132,9 +132,9 @@ body {
     font-weight: 900;
     line-height: 130%;
 }
-.screen__content_text-container {
+.first-screen__content_text-container {
     width: 100%;
-    padding: 0 14px 0 14px;
+    padding: 0 14px 20px 14px;
 }
 .first-screen__content_text {
     margin: 0 0 0 91px;

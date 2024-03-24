@@ -35,13 +35,6 @@ first_screen_media_tl = gsap.timeline()
 .fromTo(first_screen_img_background, { autoAlpha: 1, clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2, }, { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in'})
 first_screen_video.play();
 
-// .fromTo(image, { zIndex: 2, scale: 1, }, { zIndex: 2, scale: .9, duration: .72, ease: 'gg_scale_out', immediateRender: false })
-//         .fromTo(image, { zIndex: 2, opacity: 1, }, { zIndex: 2, opacity: 0, duration: .72, ease: 'gg_scale_clip_in', immediateRender: false }, '<')
-    
-// .addPause()
-// .addLabel('showFromRightSideStart')
-// .fromTo(image, { zIndex: 3, opacity: 1, clipPath: 'inset(0 0 100% 0)', scale: 1.2, }, { zIndex: 3, clipPath: 'inset(0px 0px 0px 0px)', scale: 1, opacity: 1, duration: 1.2, ease: 'gg_scale_clip_in', immediateRender: false })
-
 
 gsap.set(first_screen_label, { overflow: 'visible' });
 
