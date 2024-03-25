@@ -308,3 +308,128 @@ const second_large_story_tl =  gsap.timeline({
 //     box_index++
 
 // });
+
+
+const shels_program_media = document.querySelector('.shels_programm_media'),
+shels_program_story = shels_program_media.querySelector(".shels_programm_video"),
+shels_program_story_background = shels_program_media.querySelector(".shels_programm_background");
+
+const shels_program_story_tl =  gsap.timeline({
+    scrollTrigger: {
+        trigger: small_storys_boxes[3],
+        start: 'top bottom-=5%',
+        toggleActions: 'play none none reverse',
+    }
+})
+.fromTo(shels_program_story_background, { autoAlpha: 1, clipPath: 'inset(0 0 100% 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
+.set(shels_program_story, { autoAlpha: 1 })
+.fromTo(shels_program_story_background, { autoAlpha: 1, clipPath: 'inset(0 0 0 0)', scale: 1.2 }, { clipPath: 'inset(100% 0 0 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
+.call(() => {
+    shels_program_story.play()
+}, null, ">-.5");
+
+
+
+const program_beneffits = gsap.utils.toArray('.programm_point');
+
+program_beneffits.forEach(beneffit => {
+
+    tl =  gsap.timeline({
+        scrollTrigger: {
+            trigger: beneffit,
+            start: 'top bottom-=5%',
+            toggleActions: 'play none none reverse',
+        }
+    })
+    .from(beneffit, { y: "25px", ease: 'al_slide', duration: .7 })
+    .from(beneffit, { ease: 'none', autoAlpha: 0, duration: .7 }, '<')
+
+});
+
+const shels_program_text = document.querySelector('.shels_programm_text'),
+program_buttons = gsap.utils.toArray('.programm_button');
+
+
+gsap.set(shels_program_text, { overflow: 'visible' });
+
+const shels_program_text_tl =  gsap.timeline({
+    scrollTrigger: {
+        trigger: shels_program_text,
+        start: 'top bottom-=5%',
+        toggleActions: 'play none none none',
+    }
+})
+.from(shels_program_text, { ease: 'al_slide', autoAlpha: 0, duration: .4 }, '>.1')
+.to(shels_program_text, { rotate: '-10deg', ease: 'easeOutSine', duration: .2 }, '<')
+.to(shels_program_text, { scale: 1.3, ease: 'easeInOutSine', repeat: 1, duration: .3, yoyo: true, }, '<')
+.to(shels_program_text, { rotate: '-5deg', ease: 'easeOutSine', duration: .2 }, '<.3');
+
+program_buttons.forEach(button => {
+
+    tl =  gsap.timeline({
+        scrollTrigger: {
+            trigger: button,
+            start: 'top bottom-=5%',
+            toggleActions: 'play none none reverse',
+        }
+    })
+    .from(button, { y: '50%', ease: 'al_slide', duration: .7 })
+    .from(button, { ease: 'none', autoAlpha: 0, duration: .7 }, '<')
+
+});
+
+
+const fillings_program_text = document.querySelector('.fillings_programm_text')
+
+
+gsap.set(fillings_program_text, { overflow: 'visible' });
+
+const fillings_program_text_tl =  gsap.timeline({
+    scrollTrigger: {
+        trigger: fillings_program_text,
+        start: 'top bottom-=5%',
+        toggleActions: 'play none none none',
+    }
+})
+.from(fillings_program_text, { ease: 'al_slide', autoAlpha: 0, duration: .4 }, '>.1')
+.to(fillings_program_text, { rotate: '-10deg', ease: 'easeOutSine', duration: .2 }, '<')
+.to(fillings_program_text, { scale: 1.3, ease: 'easeInOutSine', repeat: 1, duration: .3, yoyo: true, }, '<')
+.to(fillings_program_text, { rotate: '-5deg', ease: 'easeOutSine', duration: .2 }, '<.3');
+
+
+const fillings_program_media = document.querySelector('.fillings_programm_media'),
+fillings_program_story = fillings_program_media.querySelector(".fillings_programm_video"),
+fillings_program_story_background = fillings_program_media.querySelector(".fillings_programm_background");
+
+const fillings_program_story_tl =  gsap.timeline({
+    scrollTrigger: {
+        trigger: small_storys_boxes[3],
+        start: 'top bottom-=5%',
+        toggleActions: 'play none none reverse',
+    }
+})
+.fromTo(fillings_program_story_background, { autoAlpha: 1, clipPath: 'inset(0 0 100% 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
+.set(fillings_program_story, { autoAlpha: 1 })
+.fromTo(fillings_program_story_background, { autoAlpha: 1, clipPath: 'inset(0 0 0 0)', scale: 1.2 }, { clipPath: 'inset(100% 0 0 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
+.call(() => {
+    fillings_program_story.play()
+}, null, ">-.5");
+
+
+
+const macaron_program_text = document.querySelector('.macaron_programm_text')
+
+
+gsap.set(macaron_program_text, { overflow: 'visible' });
+
+const macaron_program_text_tl =  gsap.timeline({
+    scrollTrigger: {
+        trigger: macaron_program_text,
+        start: 'top bottom-=5%',
+        toggleActions: 'play none none none',
+    }
+})
+.from(macaron_program_text, { ease: 'al_slide', autoAlpha: 0, duration: .4 }, '>.1')
+.to(macaron_program_text, { rotate: '-10deg', ease: 'easeOutSine', duration: .2 }, '<')
+.to(macaron_program_text, { scale: 1.3, ease: 'easeInOutSine', repeat: 1, duration: .3, yoyo: true, }, '<')
+.to(macaron_program_text, { rotate: '-5deg', ease: 'easeOutSine', duration: .2 }, '<.3');
