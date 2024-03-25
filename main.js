@@ -316,7 +316,7 @@ shels_program_story_background = shels_program_media.querySelector(".shels_progr
 
 const shels_program_story_tl =  gsap.timeline({
     scrollTrigger: {
-        trigger: small_storys_boxes[3],
+        trigger: shels_program_media,
         start: 'top bottom-=5%',
         toggleActions: 'play none none reverse',
     }
@@ -403,7 +403,7 @@ fillings_program_story_background = fillings_program_media.querySelector(".filli
 
 const fillings_program_story_tl =  gsap.timeline({
     scrollTrigger: {
-        trigger: small_storys_boxes[3],
+        trigger: fillings_program_media,
         start: 'top bottom-=5%',
         toggleActions: 'play none none reverse',
     }
@@ -414,6 +414,9 @@ const fillings_program_story_tl =  gsap.timeline({
 .call(() => {
     fillings_program_story.play()
 }, null, ">-.5");
+
+
+
 
 
 
