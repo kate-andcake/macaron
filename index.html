@@ -11,7 +11,9 @@
         rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Observer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
     <title>Macaron_ingraient</title>
 </head>
@@ -346,7 +348,7 @@
         <div class="seventh_screen_content">
             <h2 class="subtitle">
                 <p>Друга частина —</p>
-                <p>Курс по приготуванню начинок макарон:</p>
+                <p>Курс по приготуванню збитих ганашів для макарон:</p>
             </h2>
             <div class="fillings_programm_media">
                 <video class="fillings_programm_video" muted>
@@ -557,237 +559,328 @@
 
 
     <!----- reviews ----->
-    <!-- <section class="eighth-screen">
-        <div class="eighth_screen_content">
+
+    <section class="ninth-screen">
+        <div class="ninth_screen_content">
             <h2 class="subtitle">Більше 2000 студентів поділились своїми результатами</h2>
             <div class="review_media_box">
-                <div class="review_media">
-                    <div class="reviews_list">
+                <div class="reviews_list">
 
-                        <div class="shop_review">
-                            <div class="review_content">
-                                <div class="screen_display"></div>
-                                <video class="shopreview__review" loop muted>
-                                    <source src="video/videorshopreview 1.mp4" type="video/mp4">
-                                </video>
-                            </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_1.jpg" type="video/mp4">
                         </div>
-
-                        <div class="shop_review">
-                            <div class="review_content">
-                                <div class="screen_display"></div>
-                                <img class="shopreview__review" src="video/videorshopreview 2.jpg" type="video/mp4">
-                            </div>
-                        </div>
-
-                        <div class="shop_review">
-                            <div class="review_content">
-                                <div class="screen_display"></div>
-                                <video class="shopreview__review" loop muted>
-                                    <source src="video/videorshopreview 3.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-
-                        <div class="shop_review">
-                            <div class="review_content">
-                                <div class="screen_display"></div>
-                                <img class="shopreview__review" src="video/videorshopreview 4.jpg" type="video/mp4">
-                            </div>
-                        </div>
-
-                        <div class="shop_review">
-                            <div class="review_content">
-                                <div class="screen_display"></div>
-                                <video class="shopreview__review" loop muted>
-                                    <source src="video/videorshopreview 5.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-
-                        <div class="shop_review">
-                            <div class="review_content">
-                                <div class="screen_display"></div>
-                                <img class="shopreview__review" src="video/videorshopreview 6.jpg" type="video/mp4">
-                            </div>
-                        </div>
-
-                        <div class="shop_review">
-                            <div class="review_content">
-                                <div class="screen_display"></div>
-                                <video class="shopreview__review" loop muted>
-                                    <source src="video/videorshopreview 7.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-
-                        <div class="shop_review">
-                            <div class="review_content">
-                                <div class="screen_display"></div>
-                                <img class="shopreview__review" src="video/videorshopreview 8.jpg" type="video/mp4">
-                            </div>
-                        </div>
-
-                        <div class="shop_review">
-                            <div class="review_content">
-                                <div class="screen_display"></div>
-                                <video class="shopreview__review" loop muted>
-                                    <source src="video/videorshopreview 9.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-
-                        <div class="shop_review">
-                            <div class="review_content">
-                                <div class="screen_display"></div>
-                                <img class="shopreview__review" src="video/videorshopreview 10.jpg" type="video/mp4">
-                            </div>
-                        </div>
-
-                        <div class="shop_review">
-                            <div class="review_content">
-                                <div class="screen_display"></div>
-                                <video class="shopreview__review" loop muted>
-                                    <source src="video/videorshopreview 11.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-
-                        <div class="shop_review">
-                            <div class="review_content">
-                                <div class="screen_display"></div>
-                                <img class="shopreview__review" src="video/videorshopreview 12.jpg" type="video/mp4">
-                            </div>
-                        </div>
-
-                        <div class="shop_review">
-                            <div class="review_content">
-                                <div class="screen_display"></div>
-                                <video class="shopreview__review" loop muted>
-                                    <source src="video/videorshopreview 13.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-
-                        <div class="shop_review">
-                            <div class="review_content">
-                                <div class="screen_display"></div>
-                                <img class="shopreview__review" src="video/videorshopreview 14.jpg" type="video/mp4">
-                            </div>
-                        </div>
-
-                        <div class="shop_review">
-                            <div class="review_content">
-                                <div class="screen_display"></div>
-                                <video class="shopreview__review" loop muted>
-                                    <source src="video/videorshopreview 15.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-
-                        <div class="shop_review">
-                            <div class="review_content">
-                                <div class="screen_display"></div>
-                                <img class="shopreview__review" src="video/videorshopreview 16.jpg" type="video/mp4">
-                            </div>
-                        </div>
-
-                        <div class="shop_review">
-                            <div class="review_content">
-                                <div class="screen_display"></div>
-                                <video class="shopreview__review" loop muted>
-                                    <source src="video/videorshopreview 17.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-
-                        <div class="shop_review">
-                            <div class="review_content">
-                                <div class="screen_display"></div>
-                                <img class="shopreview__review" src="video/videorshopreview 18.jpg" type="video/mp4">
-                            </div>
-                        </div>
-
-                        <div class="shop_review">
-                            <div class="review_content">
-                                <div class="screen_display"></div>
-                                <video class="shopreview__review" loop muted>
-                                    <source src="video/videorshopreview 19.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-
-                        <div class="shop_review">
-                            <div class="review_content">
-                                <div class="screen_display"></div>
-                                <img class="shopreview__review" src="video/videorshopreview 20.jpg" type="video/mp4">
-                            </div>
-                        </div>
-
-                        <div class="shop_review">
-                            <div class="review_content">
-                                <div class="screen_display"></div>
-                                <video class="shopreview__review" loop muted>
-                                    <source src="video/videorshopreview 21.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-
-                        <div class="shop_review">
-                            <div class="review_content">
-                                <div class="screen_display"></div>
-                                <img class="shopreview__review" src="video/videorshopreview 22.jpg" type="video/mp4">
-                            </div>
-                        </div>
-
-                        <div class="shop_review">
-                            <div class="review_content">
-                                <div class="screen_display"></div>
-                                <video class="shopreview__review" loop muted>
-                                    <source src="video/videorshopreview 23.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-
-                        <div class="shop_review">
-                            <div class="review_content">
-                                <div class="screen_display"></div>
-                                <img class="shopreview__review" src="video/videorshopreview 24.jpg" type="video/mp4">
-                            </div>
-                        </div>
-
-                        <div class="shop_review">
-                            <div class="review_content">
-                                <div class="screen_display"></div>
-                                <video class="shopreview__review" loop muted>
-                                    <source src="video/videorshopreview 25.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-
-                        <div class="shop_review">
-                            <div class="review_content">
-                                <div class="screen_display"></div>
-                                <video class="shopreview__review" loop muted>
-                                    <source src="video/videorshopreview 26.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-
-                        <div class="shop_review">
-                            <div class="review_content">
-                                <div class="screen_display"></div>
-                                <video class="shopreview__review" loop muted>
-                                    <source src="video/videorshopreview 27.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-
+                        <div class="screen_display"></div>
                     </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_2.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_3.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_4.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_5.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_6.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_7.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_8.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_9.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_10.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_11.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_12.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_13.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_14.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_15.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_16.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_17.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_18.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_19.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_20.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_21.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_22.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_23.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_24.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_25.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_26.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_27.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_28.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_29.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_30.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_31.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_32.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_33.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_34.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_35.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_36.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_37.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_38.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_39.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_40.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_41.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_42.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_43.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_44.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_45.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_46.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_47.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_48.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_49.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+                    <div class="review">
+                        <div class="review_content">
+                            <img class="review__review" src="img/review_50.jpg" type="video/mp4">
+                        </div>
+                        <div class="screen_display"></div>
+                    </div>
+
+                    <!-- <div class="review">
+                        <div class="review_content">
+                            <video class="review__review" loop muted>
+                                <source src="video/videorshopreview 3.mp4" type="video/mp4">
+                                <div class="screen_display"></div>
+                            </video>
+                        </div>
+                    </div> -->
+
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
+    
     <!----- reviews ----->
 
     <script type='text/javascript' defer src='main.js'></script>
