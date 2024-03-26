@@ -247,16 +247,16 @@ const first_large_story_tl =  gsap.timeline({
         once: true,
     }
 })
-.fromTo(first_large_story_background[0], { autoAlpha: 1, clipPath: 'inset(100% 0 0 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
+.fromTo(first_large_story_background[0], { autoAlpha: 1, clipPath: 'inset(100% 0 0 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: .8, ease: 'gg_scale_clip_in' })
 .set(first_large_story[0], { autoAlpha: 1 })
-.to(first_large_story_background[0], { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' }, ">-.2")
+.to(first_large_story_background[0], { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
 .call(() => {
     first_large_story[0].play();
 }, null, ">-.5")
 .to(first_large_story[0], { autoAlpha: 1, duration: Number(first_large_story[0].getAttribute('dur'))})
 .fromTo(first_large_story_background[1], { clipPath: 'inset(100% 0 0 0)', scale: 1, autoAlpha: 1, }, { autoAlpha: 1, clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2, ease: 'gglease', duration: .5 })
 .set(first_large_story[1], { autoAlpha: 1 })
-.to(first_large_story_background[1], { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' }, ">-.2")
+.to(first_large_story_background[1], { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
 .call(() => {
     first_large_story[1].play();
     
@@ -274,16 +274,16 @@ const second_large_story_tl =  gsap.timeline({
         once: true,
     }
 })
-.fromTo(second_large_story_background[0], { autoAlpha: 1, clipPath: 'inset(100% 0 0 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
+.fromTo(second_large_story_background[0], { autoAlpha: 1, clipPath: 'inset(100% 0 0 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: .8, ease: 'gg_scale_clip_in' })
 .set(second_large_story[0], { autoAlpha: 1 })
-.to(second_large_story_background[0], { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' }, ">-.2")
+.to(second_large_story_background[0], { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
 .call(() => {
     second_large_story[0].play();
 }, null, ">-.5")
 .to(second_large_story[0], { autoAlpha: 1, duration: Number(second_large_story[0].getAttribute('dur'))})
 .fromTo(second_large_story_background[1], { clipPath: 'inset(100% 0 0 0)', scale: 1, autoAlpha: 1, }, { autoAlpha: 1, clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2, ease: 'gglease', duration: .5 })
 .set(second_large_story[1], { autoAlpha: 1 })
-.to(second_large_story_background[1], { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' }, ">-.2")
+.to(second_large_story_background[1], { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
 .call(() => {
     second_large_story[1].play();
 })
