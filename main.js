@@ -155,7 +155,7 @@ third_small_story_background = second_small_storys_boxes[0].querySelector(".smal
 const third_small_story_tl =  gsap.timeline({
     scrollTrigger: {
         trigger: second_small_storys_boxes,
-        start: 'top bottom-35%',
+        start: 'top bottom-=35%',
         toggleActions: 'play none none none',
         once: true,
     }
