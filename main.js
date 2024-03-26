@@ -98,7 +98,10 @@ description_titles.forEach(title => {
 
 
 const pare_stories_block =  gsap.utils.toArray('.pare_stories_block'),
-small_storys_boxes = gsap.utils.toArray('.small_story_box'),
+
+first_small_storys_boxes = pare_stories_block[0].querySelectorAll('.small_story_box'),
+second_small_storys_boxes = pare_stories_block[1].querySelectorAll('.small_story_box'),
+small_story_boxes = gsap.utils.toArray('.small_story_box'),
 small_storys = gsap.utils.toArray('.small_story'),
 storys_backgrounds = gsap.utils.toArray('.small_story_background');
 
@@ -106,99 +109,87 @@ gsap.set(small_storys, { autoAlpha: 0 });
 gsap.set(storys_backgrounds, { autoAlpha: 0 });
 
 
-const first_small_story = small_storys_boxes[0].querySelector(".small_story");
-const first_small_story_background = small_storys_boxes[0].querySelector(".small_story_background");
+
+
+const first_small_story = first_small_storys_boxes[0].querySelector(".small_story"),
+first_small_story_background = first_small_storys_boxes[0].querySelector(".small_story_background");
 
 const first_small_story_tl =  gsap.timeline({
     scrollTrigger: {
-        trigger: small_storys_boxes[0],
+        trigger: first_small_storys_boxes,
         start: 'top bottom-=35%',
         toggleActions: 'play none none none',
+        once: true,
     }
 })
 .fromTo(first_small_story_background, { autoAlpha: 0, clipPath: 'inset(100% 0 0 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
 .set(first_small_story, { autoAlpha: 1 })
-.fromTo(first_small_story_background, { autoAlpha: 1, clipPath: 'inset(0 0 0 0)', scale: 1.2 }, { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' }, ">-.2")
+.fromTo(first_small_story_background, { autoAlpha: 1, clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2 }, { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' }, ">-.2")
 .call(() => {
     first_small_story.play()
 }, null, ">-.5");
 
 
-const second_small_story = small_storys_boxes[1].querySelector(".small_story");
-const second_small_story_background = small_storys_boxes[1].querySelector(".small_story_background");
+const second_small_story = first_small_storys_boxes[1].querySelector(".small_story"),
+second_small_story_background = first_small_storys_boxes[1].querySelector(".small_story_background");
 
 const second_small_story_tl =  gsap.timeline({
     scrollTrigger: {
-        trigger: small_storys_boxes[0],
+        trigger: first_small_storys_boxes,
         start: 'top bottom-=35%',
         toggleActions: 'play none none none',
+        once: true,
     }
 })
 .fromTo(second_small_story_background, { autoAlpha: 0, clipPath: 'inset(100% 0 0 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
 .set(second_small_story, { autoAlpha: 1 })
-.fromTo(second_small_story_background, { autoAlpha: 1, clipPath: 'inset(0 0 0 0)', scale: 1.2 }, { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' }, ">-.2")
+.fromTo(second_small_story_background, { autoAlpha: 1, clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2 }, { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' }, ">-.2")
 .call(() => {
     second_small_story.play()
 }, null, ">-.5");
 
 
-const third_small_story = small_storys_boxes[2].querySelector(".small_story");
-const third_small_story_background = small_storys_boxes[2].querySelector(".small_story_background");
+const third_small_story = second_small_storys_boxes[0].querySelector(".small_story"),
+third_small_story_background = second_small_storys_boxes[0].querySelector(".small_story_background");
 
 const third_small_story_tl =  gsap.timeline({
     scrollTrigger: {
-        trigger: small_storys_boxes[2],
+        trigger: second_small_storys_boxes,
         start: 'top bottom-35%',
         toggleActions: 'play none none none',
+        once: true,
     }
 })
-.fromTo(third_small_story_background, { autoAlpha: 1, clipPath: 'inset(0 0 100% 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
+.fromTo(third_small_story_background, { autoAlpha: 0, clipPath: 'inset(100% 0 0 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
 .set(third_small_story, { autoAlpha: 1 })
-.fromTo(third_small_story_background, { autoAlpha: 1, clipPath: 'inset(0 0 0 0)', scale: 1.2 }, { clipPath: 'inset(100% 0 0 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
+.fromTo(third_small_story_background, { autoAlpha: 1, clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2 }, { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' }, ">-.2")
 .call(() => {
     third_small_story.play()
 }, null, ">-.5");
 
 
-const fourth_small_story = small_storys_boxes[3].querySelector(".small_story");
-const fourth_small_story_background = small_storys_boxes[3].querySelector(".small_story_background");
+const fourth_small_story = second_small_storys_boxes[1].querySelector(".small_story"),
+fourth_small_story_background = second_small_storys_boxes[1].querySelector(".small_story_background");
 
 const fourth_small_story_tl =  gsap.timeline({
     scrollTrigger: {
-        trigger: small_storys_boxes[2],
+        trigger: second_small_storys_boxes,
         start: 'top bottom-=35%',
         toggleActions: 'play none none none',
+        once: true,
     }
 })
-.fromTo(fourth_small_story_background, { autoAlpha: 1, clipPath: 'inset(0 0 100% 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
+.fromTo(fourth_small_story_background, { autoAlpha: 0, clipPath: 'inset(100% 0 0 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
 .set(fourth_small_story, { autoAlpha: 1 })
-.fromTo(fourth_small_story_background, { autoAlpha: 1, clipPath: 'inset(0 0 0 0)', scale: 1.2 }, { clipPath: 'inset(100% 0 0 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
+.fromTo(fourth_small_story_background, { autoAlpha: 1, clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2 }, { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' }, ">-.2")
 .call(() => {
     fourth_small_story.play()
 }, null, ">-.5");
 
+gsap.set(small_storys, { autoAlpha: 0 });
 gsap.set(storys_backgrounds, { autoAlpha: 0 });
 
-// small_storys_boxes.forEach((box, i) => {
 
-//     small_story = box.querySelector(".small_story")
-//     story_background = box.querySelector(".small_story_background")
-
-//     tl =  gsap.timeline({
-//         scrollTrigger: {
-//             trigger: box,
-//             start: 'top bottom-=5%',
-//             toggleActions: 'play none none reverse',
-//         }
-//     })
-//     .fromTo(story_background, { autoAlpha: 1, clipPath: 'inset(0 0 100% 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
-//     .set(small_story, { autoAlpha: 1 })
-//     .fromTo(story_background, { autoAlpha: 1, clipPath: 'inset(0 0 0 0)', scale: 1.2 }, { clipPath: 'inset(100% 0 0 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
-//     .call(() => {
-//         playFunctionsArray[i]
-//     });
-
-// });
 
 
 const new_beneffits = gsap.utils.toArray('.new_beneffit');
@@ -251,20 +242,21 @@ gsap.set(first_large_story_background, { autoAlpha: 0 });
 const first_large_story_tl =  gsap.timeline({
     scrollTrigger: {
         trigger: first_large_story,
-        start: 'top bottom-=5%',
+        start: 'top bottom-=35%',
         toggleActions: 'play none none none',
+        once: true,
     }
 })
-.fromTo(first_large_story_background[0], { autoAlpha: 1, clipPath: 'inset(0 0 100% 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
+.fromTo(first_large_story_background[0], { autoAlpha: 1, clipPath: 'inset(100% 0 0 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
 .set(first_large_story[0], { autoAlpha: 1 })
-.to(first_large_story_background[0], { clipPath: 'inset(100% 0 0 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
+.to(first_large_story_background[0], { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' }, ">-.2")
 .call(() => {
     first_large_story[0].play();
 }, null, ">-.5")
 .to(first_large_story[0], { autoAlpha: 1, duration: Number(first_large_story[0].getAttribute('dur'))})
-.fromTo(first_large_story_background[1], { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, }, { autoAlpha: 1, clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2, ease: 'gglease', duration: .5 })
+.fromTo(first_large_story_background[1], { clipPath: 'inset(100% 0 0 0)', scale: 1, autoAlpha: 1, }, { autoAlpha: 1, clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2, ease: 'gglease', duration: .5 })
 .set(first_large_story[1], { autoAlpha: 1 })
-.to(first_large_story_background[1], { clipPath: 'inset(100% 0 0 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
+.to(first_large_story_background[1], { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' }, ">-.2")
 .call(() => {
     first_large_story[1].play();
     
@@ -277,72 +269,51 @@ const second_large_story_background = large_storys_boxes[1].querySelectorAll(".l
 const second_large_story_tl =  gsap.timeline({
     scrollTrigger: {
         trigger: second_large_story,
-        start: 'top bottom-=5%',
+        start: 'top bottom-=35%',
         toggleActions: 'play none none none',
+        once: true,
     }
 })
-.fromTo(second_large_story_background[0], { autoAlpha: 1, clipPath: 'inset(0 0 100% 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
+.fromTo(second_large_story_background[0], { autoAlpha: 1, clipPath: 'inset(100% 0 0 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
 .set(second_large_story[0], { autoAlpha: 1 })
-.to(second_large_story_background[0], { clipPath: 'inset(100% 0 0 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
+.to(second_large_story_background[0], { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' }, ">-.2")
 .call(() => {
     second_large_story[0].play();
 }, null, ">-.5")
 .to(second_large_story[0], { autoAlpha: 1, duration: Number(second_large_story[0].getAttribute('dur'))})
-.fromTo(second_large_story_background[1], { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, }, { autoAlpha: 1, clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2, ease: 'gglease', duration: .5 })
+.fromTo(second_large_story_background[1], { clipPath: 'inset(100% 0 0 0)', scale: 1, autoAlpha: 1, }, { autoAlpha: 1, clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2, ease: 'gglease', duration: .5 })
 .set(second_large_story[1], { autoAlpha: 1 })
-.to(second_large_story_background[1], { clipPath: 'inset(100% 0 0 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
+.to(second_large_story_background[1], { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' }, ">-.2")
 .call(() => {
     second_large_story[1].play();
 })
 
-
-// large_storys_boxes.forEach((box, i) => {
-
-//     story = box.querySelectorAll(".large_storie");
-//     story_background = box.querySelector(".large_storie_background");
-
-//     tl =  gsap.timeline({
-//         scrollTrigger: {
-//             trigger: box,
-//             start: 'top bottom-=5%',
-//             toggleActions: 'play none none none',
-//         }
-//     })
-//     .fromTo(story_background, { autoAlpha: 1, clipPath: 'inset(0 0 100% 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
-//     .set(story[0], { autoAlpha: 1 })
-//     .fromTo(story_background, { autoAlpha: 1, clipPath: 'inset(0 0 0 0)', scale: 1.2 }, { clipPath: 'inset(100% 0 0 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
-//     .call(() => {
-//         playLargeStoriesFunctionsArray[i + box_index];
-//     })
-//     .fromTo(story_background, { clipPath: 'inset(100% 0 0 0)', scale: 1, autoAlpha: 1, }, { autoAlpha: 1, clipPath: 'inset(0 0 0 0)', scale: 1.2, ease: 'gglease', duration: .5 }, Number(story[0].getAttribute('dur')))
-//     .set(story[1], { autoAlpha: 1 })
-//     .fromTo(story_background, { autoAlpha: 1, clipPath: 'inset(0 0 0 0)', scale: 1.2 }, { clipPath: 'inset(100% 0 0 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
-//     .call(() => {
-//         playLargeStoriesFunctionsArray[i + box_index + 1];
-//     })
-//     box_index++
-
-// });
 
 
 const shels_program_media = document.querySelector('.shels_programm_media'),
 shels_program_story = shels_program_media.querySelector(".shels_programm_video"),
 shels_program_story_background = shels_program_media.querySelector(".shels_programm_background");
 
+gsap.set(shels_program_story, { autoAlpha: 0 });
+gsap.set(shels_program_story_background, { autoAlpha: 0 });
+
 const shels_program_story_tl =  gsap.timeline({
     scrollTrigger: {
         trigger: shels_program_media,
-        start: 'top bottom-=5%',
-        toggleActions: 'play none none reverse',
+        start: 'top bottom-=35%',
+        toggleActions: 'play none none none',
+        once: true,
     }
 })
-.fromTo(shels_program_story_background, { autoAlpha: 1, clipPath: 'inset(0 0 100% 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
+.fromTo(shels_program_story_background, { autoAlpha: 0, clipPath: 'inset(100% 0 0 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
 .set(shels_program_story, { autoAlpha: 1 })
-.fromTo(shels_program_story_background, { autoAlpha: 1, clipPath: 'inset(0 0 0 0)', scale: 1.2 }, { clipPath: 'inset(100% 0 0 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
+.fromTo(shels_program_story_background, { autoAlpha: 1, clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2 }, { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
 .call(() => {
     shels_program_story.play()
 }, null, ">-.5");
 
+gsap.set(shels_program_story, { autoAlpha: 0 });
+gsap.set(shels_program_story_background, { autoAlpha: 0 });
 
 
 const program_beneffits = gsap.utils.toArray('.programm_point');
@@ -424,23 +395,32 @@ const fillings_program_text_tl =  gsap.timeline({
 .to(fillings_program_text, { rotate: '-5deg', ease: 'easeOutSine', duration: .2 }, '<.3');
 
 
+
+
 const fillings_program_media = document.querySelector('.fillings_programm_media'),
 fillings_program_story = fillings_program_media.querySelector(".fillings_programm_video"),
 fillings_program_story_background = fillings_program_media.querySelector(".fillings_programm_background");
 
+gsap.set(fillings_program_story, { autoAlpha: 0 });
+gsap.set(fillings_program_story_background, { autoAlpha: 0 });
+
 const fillings_program_story_tl =  gsap.timeline({
     scrollTrigger: {
         trigger: fillings_program_media,
-        start: 'top bottom-=5%',
-        toggleActions: 'play none none reverse',
+        start: 'top bottom-=35%',
+        toggleActions: 'play none none none',
+        once: true,
     }
 })
-.fromTo(fillings_program_story_background, { autoAlpha: 1, clipPath: 'inset(0 0 100% 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
+.fromTo(fillings_program_story_background, { autoAlpha: 1, clipPath: 'inset(100% 0 0 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
 .set(fillings_program_story, { autoAlpha: 1 })
-.fromTo(fillings_program_story_background, { autoAlpha: 1, clipPath: 'inset(0 0 0 0)', scale: 1.2 }, { clipPath: 'inset(100% 0 0 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
+.fromTo(fillings_program_story_background, { autoAlpha: 1, clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2 }, { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
 .call(() => {
     fillings_program_story.play()
 }, null, ">-.5");
+
+gsap.set(fillings_program_story, { autoAlpha: 0 });
+gsap.set(fillings_program_story_background, { autoAlpha: 0 });
 
 
 
