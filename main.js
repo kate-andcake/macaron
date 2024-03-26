@@ -25,7 +25,7 @@ mm.add('(max-width: 960px)', () => {
 
     mobile_overflow.style.overflowX = 'hidden';
     mobile_overflow.style.width = window.innerWidth + 'px';
-})
+});
 
 
 
@@ -45,9 +45,10 @@ const first_screen_media_tl = gsap.timeline()
 .fromTo(first_screen_img_background, { autoAlpha: 1, clipPath: 'inset(100% 0 0 0)', scale: 1.2, }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gglease'})
 .set(first_screen_video, { autoAlpha: 1 })
 .fromTo(first_screen_img_background, { autoAlpha: 1, clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2, }, { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in'})
+.fromTo(first_screen_video, { scale: 0.95, borderRadius: 12 }, { scale: 1, duration: 1, ease: 'gg_scale_clip_in'}, "<")
 .add(() => {
     first_screen_video.play();
-}, "-=1")
+}, "-=1");
 
 
 gsap.set(first_screen_label, { overflow: 'visible' });
@@ -60,6 +61,20 @@ const first_screen_content_tl =  gsap.timeline()
 .to(first_screen_label, { rotate: '-35deg', ease: 'easeOutSine', duration: .2 }, '<')
 .to(first_screen_label, { scale: 1.5, ease: 'easeInOutSine', repeat: 1, duration: .3, yoyo: true, }, '<')
 .to(first_screen_label, { rotate: '-5deg', ease: 'easeOutSine', duration: .2 }, '<.3');
+
+
+const first_screen__content_button = document.querySelector('.first-screen__content_button'),
+course_start_description = document.querySelector('.second-screen');
+
+first_screen__content_button.addEventListener("click", () => gsap.to(window, {scrollTo: { y: course_start_description } }));
+
+
+document.querySelectorAll("a").forEach(function(link) {
+    link.addEventListener("click", function(e) {
+      e.preventDefault();
+      gsap.to(window, {duration: 1, scrollTo: {y: link.getAttribute("href"), autoKill: false}});
+    });
+  });
 
 
 
@@ -124,7 +139,8 @@ const first_small_story_tl =  gsap.timeline({
 })
 .fromTo(first_small_story_background, { autoAlpha: 0, clipPath: 'inset(100% 0 0 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
 .set(first_small_story, { autoAlpha: 1 })
-.fromTo(first_small_story_background, { autoAlpha: 1, clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2 }, { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' }, ">-.2")
+.fromTo(first_small_story_background, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2 }, { clipPath: 'inset(0 0 100% 0)', scale: 1, duration: .8, ease: 'gglease' })
+.fromTo(first_small_story, { scale: 0.9, borderRadius: 12 }, { scale: 1, duration: .8, ease: 'gg_scale_clip_in'}, "<")
 .call(() => {
     first_small_story.play()
 }, null, ">-.5");
@@ -143,7 +159,8 @@ const second_small_story_tl =  gsap.timeline({
 })
 .fromTo(second_small_story_background, { autoAlpha: 0, clipPath: 'inset(100% 0 0 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
 .set(second_small_story, { autoAlpha: 1 })
-.fromTo(second_small_story_background, { autoAlpha: 1, clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2 }, { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' }, ">-.2")
+.fromTo(second_small_story_background, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2 }, { clipPath: 'inset(0 0 100% 0)', scale: 1, duration: .8, ease: 'gglease' })
+.fromTo(second_small_story, { scale: 0.9, borderRadius: 12 }, { scale: 1, duration: .8, ease: 'gg_scale_clip_in'}, "<")
 .call(() => {
     second_small_story.play()
 }, null, ">-.5");
@@ -162,7 +179,8 @@ const third_small_story_tl =  gsap.timeline({
 })
 .fromTo(third_small_story_background, { autoAlpha: 0, clipPath: 'inset(100% 0 0 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
 .set(third_small_story, { autoAlpha: 1 })
-.fromTo(third_small_story_background, { autoAlpha: 1, clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2 }, { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' }, ">-.2")
+.fromTo(third_small_story_background, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2 }, { clipPath: 'inset(0 0 100% 0)', scale: 1, duration: .8, ease: 'gglease' })
+.fromTo(third_small_story, { scale: 0.9, borderRadius: 12 }, { scale: 1, duration: .8, ease: 'gg_scale_clip_in'}, "<")
 .call(() => {
     third_small_story.play()
 }, null, ">-.5");
@@ -181,7 +199,8 @@ const fourth_small_story_tl =  gsap.timeline({
 })
 .fromTo(fourth_small_story_background, { autoAlpha: 0, clipPath: 'inset(100% 0 0 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
 .set(fourth_small_story, { autoAlpha: 1 })
-.fromTo(fourth_small_story_background, { autoAlpha: 1, clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2 }, { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' }, ">-.2")
+.fromTo(fourth_small_story_background, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2 }, { clipPath: 'inset(0 0 100% 0)', scale: 1, duration: .8, ease: 'gglease' })
+.fromTo(fourth_small_story, { scale: 0.9, borderRadius: 12 }, { scale: 1, duration: .8, ease: 'gg_scale_clip_in'}, "<")
 .call(() => {
     fourth_small_story.play()
 }, null, ">-.5");
@@ -249,14 +268,16 @@ const first_large_story_tl =  gsap.timeline({
 })
 .fromTo(first_large_story_background[0], { autoAlpha: 1, clipPath: 'inset(100% 0 0 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: .8, ease: 'gg_scale_clip_in' })
 .set(first_large_story[0], { autoAlpha: 1 })
-.to(first_large_story_background[0], { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
+.to(first_large_story_background[0], { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .8, ease: 'gglease' })
+.fromTo(first_large_story[0], { scale: 0.9, borderRadius: 12 }, { scale: 1, duration: .8, ease: 'gg_scale_clip_in'}, "<")
 .call(() => {
     first_large_story[0].play();
 }, null, ">-.5")
 .to(first_large_story[0], { autoAlpha: 1, duration: Number(first_large_story[0].getAttribute('dur'))})
 .fromTo(first_large_story_background[1], { clipPath: 'inset(100% 0 0 0)', scale: 1, autoAlpha: 1, }, { autoAlpha: 1, clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2, ease: 'gglease', duration: .5 })
 .set(first_large_story[1], { autoAlpha: 1 })
-.to(first_large_story_background[1], { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
+.to(first_large_story_background[1], { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .8, ease: 'gglease' })
+.fromTo(first_large_story[1], { scale: 0.9, borderRadius: 12 }, { scale: 1, duration: .8, ease: 'gg_scale_clip_in'}, "<")
 .call(() => {
     first_large_story[1].play();
     
@@ -276,14 +297,16 @@ const second_large_story_tl =  gsap.timeline({
 })
 .fromTo(second_large_story_background[0], { autoAlpha: 1, clipPath: 'inset(100% 0 0 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: .8, ease: 'gg_scale_clip_in' })
 .set(second_large_story[0], { autoAlpha: 1 })
-.to(second_large_story_background[0], { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
+.to(second_large_story_background[0], { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .8, ease: 'gglease' })
+.fromTo(second_large_story[0], { scale: 0.9, borderRadius: 12 }, { scale: 1, duration: .8, ease: 'gg_scale_clip_in'}, "<")
 .call(() => {
     second_large_story[0].play();
 }, null, ">-.5")
 .to(second_large_story[0], { autoAlpha: 1, duration: Number(second_large_story[0].getAttribute('dur'))})
 .fromTo(second_large_story_background[1], { clipPath: 'inset(100% 0 0 0)', scale: 1, autoAlpha: 1, }, { autoAlpha: 1, clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2, ease: 'gglease', duration: .5 })
 .set(second_large_story[1], { autoAlpha: 1 })
-.to(second_large_story_background[1], { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
+.to(second_large_story_background[1], { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .8, ease: 'gglease' })
+.fromTo(second_large_story[1], { scale: 0.9, borderRadius: 12 }, { scale: 1, duration: .8, ease: 'gg_scale_clip_in'}, "<")
 .call(() => {
     second_large_story[1].play();
 })
@@ -307,7 +330,8 @@ const shels_program_story_tl =  gsap.timeline({
 })
 .fromTo(shels_program_story_background, { autoAlpha: 0, clipPath: 'inset(100% 0 0 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
 .set(shels_program_story, { autoAlpha: 1 })
-.fromTo(shels_program_story_background, { autoAlpha: 1, clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2 }, { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
+.fromTo(shels_program_story_background, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2 }, { clipPath: 'inset(0 0 100% 0)', scale: 1, duration: .8, ease: 'gglease' })
+.fromTo(shels_program_story, { scale: 0.9, borderRadius: 12 }, { scale: 1, duration: .8, ease: 'gg_scale_clip_in'}, "<")
 .call(() => {
     shels_program_story.play()
 }, null, ">-.5");
@@ -414,7 +438,8 @@ const fillings_program_story_tl =  gsap.timeline({
 })
 .fromTo(fillings_program_story_background, { autoAlpha: 1, clipPath: 'inset(100% 0 0 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
 .set(fillings_program_story, { autoAlpha: 1 })
-.fromTo(fillings_program_story_background, { autoAlpha: 1, clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2 }, { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
+.fromTo(fillings_program_story_background, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1.2 }, { clipPath: 'inset(0 0 100% 0)', scale: 1, duration: .8, ease: 'gglease' })
+.fromTo(fillings_program_story, { scale: 0.9, borderRadius: 12 }, { scale: 1, duration: .8, ease: 'gg_scale_clip_in'}, "<")
 .call(() => {
     fillings_program_story.play()
 }, null, ">-.5");
