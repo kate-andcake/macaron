@@ -659,4 +659,8 @@ body {
     display: flex;
     justify-content: center;
     gap: 3.5px;
+    cursor: pointer;
+}
+.social_logo {
+    fill: black;
 }

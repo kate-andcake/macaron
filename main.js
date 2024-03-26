@@ -97,7 +97,8 @@ description_titles.forEach(title => {
 });
 
 
-const small_storys_boxes = gsap.utils.toArray('.small_story_box'),
+const pare_stories_block =  gsap.utils.toArray('.pare_stories_block'),
+small_storys_boxes = gsap.utils.toArray('.small_story_box'),
 small_storys = gsap.utils.toArray('.small_story'),
 storys_backgrounds = gsap.utils.toArray('.small_story_background');
 
@@ -111,13 +112,13 @@ const first_small_story_background = small_storys_boxes[0].querySelector(".small
 const first_small_story_tl =  gsap.timeline({
     scrollTrigger: {
         trigger: small_storys_boxes[0],
-        start: 'top bottom-=5%',
-        toggleActions: 'play none none reverse',
+        start: 'top bottom-=35%',
+        toggleActions: 'play none none none',
     }
 })
-.fromTo(first_small_story_background, { autoAlpha: 1, clipPath: 'inset(0 0 100% 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
+.fromTo(first_small_story_background, { autoAlpha: 0, clipPath: 'inset(100% 0 0 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
 .set(first_small_story, { autoAlpha: 1 })
-.fromTo(first_small_story_background, { autoAlpha: 1, clipPath: 'inset(0 0 0 0)', scale: 1.2 }, { clipPath: 'inset(100% 0 0 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
+.fromTo(first_small_story_background, { autoAlpha: 1, clipPath: 'inset(0 0 0 0)', scale: 1.2 }, { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' }, ">-.2")
 .call(() => {
     first_small_story.play()
 }, null, ">-.5");
@@ -128,14 +129,14 @@ const second_small_story_background = small_storys_boxes[1].querySelector(".smal
 
 const second_small_story_tl =  gsap.timeline({
     scrollTrigger: {
-        trigger: small_storys_boxes[1],
-        start: 'top bottom-=5%',
-        toggleActions: 'play none none reverse',
+        trigger: small_storys_boxes[0],
+        start: 'top bottom-=35%',
+        toggleActions: 'play none none none',
     }
 })
-.fromTo(second_small_story_background, { autoAlpha: 1, clipPath: 'inset(0 0 100% 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
+.fromTo(second_small_story_background, { autoAlpha: 0, clipPath: 'inset(100% 0 0 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
 .set(second_small_story, { autoAlpha: 1 })
-.fromTo(second_small_story_background, { autoAlpha: 1, clipPath: 'inset(0 0 0 0)', scale: 1.2 }, { clipPath: 'inset(100% 0 0 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' })
+.fromTo(second_small_story_background, { autoAlpha: 1, clipPath: 'inset(0 0 0 0)', scale: 1.2 }, { clipPath: 'inset(0 0 100% 0)', scale: 1, autoAlpha: 1, duration: .5, ease: 'gglease' }, ">-.2")
 .call(() => {
     second_small_story.play()
 }, null, ">-.5");
@@ -147,8 +148,8 @@ const third_small_story_background = small_storys_boxes[2].querySelector(".small
 const third_small_story_tl =  gsap.timeline({
     scrollTrigger: {
         trigger: small_storys_boxes[2],
-        start: 'top bottom-=5%',
-        toggleActions: 'play none none reverse',
+        start: 'top bottom-35%',
+        toggleActions: 'play none none none',
     }
 })
 .fromTo(third_small_story_background, { autoAlpha: 1, clipPath: 'inset(0 0 100% 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
@@ -164,9 +165,9 @@ const fourth_small_story_background = small_storys_boxes[3].querySelector(".smal
 
 const fourth_small_story_tl =  gsap.timeline({
     scrollTrigger: {
-        trigger: small_storys_boxes[3],
-        start: 'top bottom-=5%',
-        toggleActions: 'play none none reverse',
+        trigger: small_storys_boxes[2],
+        start: 'top bottom-=35%',
+        toggleActions: 'play none none none',
     }
 })
 .fromTo(fourth_small_story_background, { autoAlpha: 1, clipPath: 'inset(0 0 100% 0)', scale: 1.2 }, { clipPath: 'inset(0px 0px 0px 0px)', scale: 1, autoAlpha: 1, duration: 1, ease: 'gg_scale_clip_in' })
@@ -175,6 +176,8 @@ const fourth_small_story_tl =  gsap.timeline({
 .call(() => {
     fourth_small_story.play()
 }, null, ">-.5");
+
+gsap.set(storys_backgrounds, { autoAlpha: 0 });
 
 // small_storys_boxes.forEach((box, i) => {
 
@@ -498,4 +501,17 @@ document.querySelectorAll(".reviews_list").forEach((container) => {
         } 
     }
   }
+});
+
+
+const social_link = document.querySelector('.social_link'),
+social_logo = document.querySelector('.social_logo'),
+social_name = document.querySelector('.social_name');
+
+social_link.addEventListener('click', function() {
+    tl = gsap.timeline()
+    .to(social_logo, { fill: "#1967D2", duration: 0.2 })
+    .to(social_name, { color: "#1967D2", duration: 0.2 }, "<")
+    .to(social_link, { scale: 0.9, duration: 0.2 }, "<")
+
 });
