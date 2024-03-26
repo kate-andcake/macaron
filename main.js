@@ -17,6 +17,18 @@ CustomEase.create('easeOutQuint', 'M0,0 C0.22,1 0.36,1 1,1')
 CustomEase.create('easeOutSine', 'M0,0 C0.61,1 0.88,1 1,1') 
 CustomEase.create('easeInOutSine', 'M0,0 C0.37,0 0.63,1 1,1') 
 
+let mm = gsap.matchMedia()
+
+mm.add('(max-width: 960px)', () => {
+    const body = document.body,
+    mobile_overflow = document.querySelector('.mobile_overfolw');
+
+    mobile_overflow.style.overflowX = 'hidden';
+    mobile_overflow.style.width = window.innerWidth + 'px';
+})
+
+
+
 const first_screen_label = document.querySelector('.first_screen__content_title-label');
 
 const first_screen_title = document.querySelector('.first-screen__content_title-text');
