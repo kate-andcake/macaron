@@ -1,0 +1,177 @@
+
+html {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'liga';
+  }
+* {
+    box-sizing: border-box;
+    margin-block-start: 0;
+    margin-block-end: 0;
+} 
+body {
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    width: 390px;
+    margin: 0 auto;
+}
+
+
+.request {
+    width: 100%;
+    padding: 0 14px 30px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+.reqest_header {
+    position: fixed;
+    width: calc(100% - 28px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0 10px 0;
+    background-color: white;
+    z-index: 100;
+}
+.select_info {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+.select_info_title {
+    color: #191818;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 150%;
+}
+.select_info_text {
+    color: #191818;
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 150%;
+}
+.regusest_back {
+    color: #191818;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 150%;
+    opacity: .7;
+}
+.request_content {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding: 160px 0 0 0;
+}
+.course_selection {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.subtitle {
+    color: #1D1D1F;
+    font-family: "Inter", sans-serif;
+    font-size: 31px;
+    font-weight: 600;
+    line-height: 130%;
+}
+.course_selection_point {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.course_selection_point_title {
+    color: #191818;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 150%;
+}
+.course_selection_point_buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.course_selection_point_button {
+    color: #343538;
+    border: 1px solid #343538;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 100%;
+    opacity: .5;
+    padding: 8px 20px 8px 20px;
+    border-radius: 100px;
+}
+
+.props {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.props_point_buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.props_point_button {
+    color: #343538;
+    border: 1px solid #343538;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 100%;
+    opacity: .5;
+    padding: 8px 20px 8px 20px;
+    border-radius: 100px;
+}
+.contact_title {
+    color: #191818;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 120%;
+
+}
+.contsct_input {
+    color: #72767E;
+    width: 180px;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+    background-color: #F4F4F4;
+    border: none;
+    padding: 14px 18px 14px 18px;
+    border-radius: 100px;
+
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    gap: 60px;
+}
+.send_data {
+    text-decoration: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px 8px 20px;
+    border-radius: 100px;
+    background-color: #1967D2;
+    color: #FFFFFF;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 130%;
+}

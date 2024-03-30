@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="request.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Observer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+    <title>Macaron_ingraient</title>
+</head>
+
+<body>
+    <div class="mobile_overfolw">
+
+        <div class="request">
+            <div class="reqest_header">
+                <div class="select_info">
+                    <p class="select_info_title">Всього:</p>
+                    <p class="select_info_text">2035 ₴</p>
+                </div>
+            </div>
+            <div class="request_content">
+
+                <div class="course_selection">
+                    <h1 class="subtitle">Залишити заявку на обрані курси</h1>
+                    <div class="course_selection_point">
+                        <p class="course_selection_point_title">Вибрати повний курс по макарон</p>
+                        <div class="course_selection_point_buttons">
+                            <div class="course_selection_point_button select_macaron" call="macaron">Курс “Макарон”</div>
+                        </div>
+                    </div>
+                    <div class="course_selection_point">
+                        <p class="course_selection_point_title">Вибрати окремо курс по кришечкам макарон</p>
+                        <div class="course_selection_point_buttons">
+                            <div class="course_selection_point_button select_shells" call="shells">Курс “Кришечки”</div>
+                        </div>
+                    </div>
+                    <div class="course_selection_point">
+                        <p class="course_selection_point_title">Вибрати курси по окремим начинкам макарон</p>
+                        <div class="course_selection_point_buttons">
+                            <div class="course_selection_point_button select_strawberrie" call="strawberrie">“Полуниця - Мак - Ваніль”</div>
+                            <div class="course_selection_point_button select_mango" call="mango">“Манго - Маракуйя”</div>
+                            <div class="course_selection_point_button select_baunti" call="baunti">“Баунті”</div>
+                            <div class="course_selection_point_button select_pistachio" call="pistachio">“Фісташка - Малина”</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="props">
+                    <h3 class="subtitle">Вкажіть куди надіслати реквізити для оплати</h3>
+                    <div class="props_point_buttons">
+                        <div class="props_point_button">Instagram</div>
+                        <div class="props_point_button">Viber</div>
+                        <div class="props_point_button">Telegram</div>
+                    </div>
+                    <h3 class="contact_title">Вкажіть телефон для на який надіслати реквізити</h3>
+                    <form class="form tel_form">
+                        <input class="contsct_input" type="tel" id="phone" name="phone" placeholder="+380XXXXXXXXX" required>
+                        <input type="submit" value="Отримати реквізити" class="send_data">
+                    </form>
+                    <form class="form name_form">
+                        <input type="text" class="contsct_input" id="name" required>
+                        <input type="submit" value="Отримати реквізити" class="send_data">
+                    </form>
+        
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script type='text/javascript' defer src='request.js'></script>
+</body>
+
+</html>

@@ -17,6 +17,9 @@ body {
     width: 390px;
     margin: 0 auto;
 }
+a {
+    text-decoration: none;
+}
 
 .nav {
     width: 100%;
@@ -151,8 +154,6 @@ body {
     padding: 8px 20px 8px 20px;
     border-radius: 100px;
     background-color: #1967D2;
-}
-.first-screen__content_button-text {
     color: #FFFFFF;
     font-family: "Inter", sans-serif;
     font-size: 16px;
@@ -434,14 +435,14 @@ body {
     text-align: center;
 }
 .programm_button {
-    padding: 8px 20px 8px 20px;
-    border-radius: 100px;
-    background-color: #1967D2;
+    text-decoration: none;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.programm_button_text {
+    padding: 8px 20px 8px 20px;
+    border-radius: 100px;
+    background-color: #1967D2;
     color: #FFFFFF;
     font-family: "Inter", sans-serif;
     font-size: 16px;
@@ -610,19 +611,27 @@ body {
 }
 .second_button {
     padding: 8px 20px 8px 20px;
-    border-radius: 100px;
-    border: 2px solid #1967D2;
+    text-decoration: none;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.second_button_text {
+    padding: 8px 20px 8px 20px;
+    border-radius: 100px;
+    border: 1px #1967D2 solid;
     color: #1967D2;
     font-family: "Inter", sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 130%;
 }
+/* .second_button_text {
+    color: #1967D2;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 130%;
+} */
 
 
 
@@ -664,3 +673,9 @@ body {
 .social_logo {
     fill: black;
 }
+
+/* --- request --- */
+
+
+
+/* --- request --- */

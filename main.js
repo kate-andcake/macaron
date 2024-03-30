@@ -69,14 +69,6 @@ course_start_description = document.querySelector('.second-screen');
 first_screen__content_button.addEventListener("click", () => gsap.to(window, {scrollTo: { y: course_start_description } }));
 
 
-document.querySelectorAll("a").forEach(function(link) {
-    link.addEventListener("click", function(e) {
-      e.preventDefault();
-      gsap.to(window, {duration: 1, scrollTo: {y: link.getAttribute("href"), autoKill: false}});
-    });
-  });
-
-
 
 const subtitles = gsap.utils.toArray('.subtitle');
 
@@ -384,7 +376,17 @@ program_buttons.forEach(button => {
         }
     })
     .from(button, { y: '50%', ease: 'al_slide', duration: .7 })
-    .from(button, { ease: 'none', autoAlpha: 0, duration: .7 }, '<')
+    .from(button, { ease: 'none', autoAlpha: 0, duration: .7 }, '<');
+
+    button.addEventListener('click', () => {
+        if (button.getAttribute('call') == "shells") {
+            localStorage.setItem('myData', 'false,true,false');
+        } else if (button.getAttribute('call') == "strawberrie,mango,baunti,pistachio") {
+            localStorage.setItem('myData', 'false,false,true');
+        } else if (button.getAttribute('call') == "macaron") {
+            localStorage.setItem('myData', 'true,true,true');
+        }
+    })
 
 });
 
@@ -518,5 +520,6 @@ social_link.addEventListener('click', function() {
     .to(social_logo, { fill: "#1967D2", duration: 0.2 })
     .to(social_name, { color: "#1967D2", duration: 0.2 }, "<")
     .to(social_link, { scale: 0.9, duration: 0.2 }, "<")
-
 });
+
+
