@@ -53,14 +53,15 @@ _input.addEventListener('input', () => {
 });
 
 // _button.addEventListener('click', () => {
-req_forms[0].addEventListener('submit', () => {
+req_forms[0].addEventListener('submit', (event) => {
+    event.preventDefault();
     if (_input.value.length >= 12) {
         let selected_items = program_buttons.map(item => [item.getAttribute('my_bool'), item.getAttribute('name')]);
         let selected_items_text = '';
         if (selected_items[0][0] == "true") {
             selected_items_text = "\n" + selected_items[0][1];
         } else {
-            selected_items.forEach((item, i), () => {
+            selected_items.forEach(item => {
                 if (item[0] == "true") {
                     selected_items_text = selected_items_text + "\n" + item[1];
                 }
