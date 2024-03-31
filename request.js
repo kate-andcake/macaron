@@ -52,7 +52,8 @@ _input.addEventListener('input', () => {
 
 });
 
-_button.addEventListener('click', () => {
+// _button.addEventListener('click', () => {
+req_forms[0].addEventListener('submit', () => {
     if (_input.value.length >= 12) {
         let selected_items = program_buttons.map(item => [item.getAttribute('my_bool'), item.getAttribute('name')]);
         let selected_items_text = '';
@@ -75,7 +76,7 @@ _button.addEventListener('click', () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                chat_id: String(__chat_id),
+                chat_id: __chat_id,
                 text: text
             })
         })
