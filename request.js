@@ -17,6 +17,11 @@ CustomEase.create('easeOutQuint', 'M0,0 C0.22,1 0.36,1 1,1')
 CustomEase.create('easeOutSine', 'M0,0 C0.61,1 0.88,1 1,1') 
 CustomEase.create('easeInOutSine', 'M0,0 C0.37,0 0.63,1 1,1') 
 
+let _count = 0;
+const program_buttons = gsap.utils.toArray('.course_selection_point_button');
+const __chat_id = 301653172;
+
+
 let mm = gsap.matchMedia()
 
 mm.add('(max-width: 960px)', () => {
@@ -29,70 +34,81 @@ mm.add('(max-width: 960px)', () => {
 
 const req_forms = gsap.utils.toArray('.form');
 
-function handle_input(forms) {
-
-    forms.forEach(form => {
-
-        classes = form.classList;
-        classes = [classes[0], classes[1]];
-
-        if (classes.includes("tel_form")) {
-
-            _input = form.querySelector(".contsct_input");
-            _button = form.querySelector(".send_data");
-        
-            _input.addEventListener('input', () => {
-                _input.value = _input.value.replace(/[^0-9]/g, '');
-        
-                if (_input.value.length < 3) {
-                    _input.value = "380";
-                }
     
-                if (_input.value.length > 13) {
-                    _input.value = _input.value.slice(0, 13);
-                }
-            });
+_input = req_forms[0].querySelector(".contsct_input");
+_button = req_forms[0].querySelector(".send_data");
 
-            _button.addEventListener('click', () => {
-                if (_input.value.length >= 12) {
-                    // send data
-                }
-            });
+_input.addEventListener('input', () => {
+
+    _input.value = _input.value.replace(/[^0-9\+]/g, '');
     
-        } else if (classes.includes("name_form")) {
+    if (_input.value.length < 4) {
+        _input.value = "+380";
+    }
 
-            _input = form.querySelector(".contsct_input");
-            _button = form.querySelector(".send_data");
-    
-            _input.addEventListener('input', () => {
-                _input.value = _input.value.replace(/[^a-zA-Z0-9\._]/g, '');
-            });
+    if (_input.value.length > 13) {
+        _input.value = _input.value.slice(0, 13);
+    }
 
-            _button.addEventListener('click', () => {
-                if (_input.value.length >= 5) {
-                    // send data
+});
+
+_button.addEventListener('click', () => {
+    if (_input.value.length >= 12) {
+        let selected_items = program_buttons.map(item => [item.getAttribute('my_bool'), item.getAttribute('name')]);
+        let selected_items_text = '';
+        if (selected_items[0][0] == "true") {
+            selected_items_text = "\n" + selected_items[0][1];
+        } else {
+            selected_items.forEach((item, i), () => {
+                if (item[0] == "true") {
+                    selected_items_text = selected_items_text + "\n" + item[1];
                 }
-            });
-
+            })
         }
+        text = "Вибрані курси:" + selected_items_text + "\n\n" + "Вартість: " + "\n" + String(_count) + "\n" + "Номер:" + _input.value
 
-        gsap.set(form, {display: "none"});
+        fetch("https://api.telegram.org/bot7053037318:AAHGCO6ibPRXGHH2gsQrWtBej-QYKHHB0n8/sendMessage", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                chat_id: String(__chat_id),
+                text: text
+            })
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch((error) => {
+          console.error('Error:', error);
+        });
 
-    });
+        // send data
+    }
+});
     
 
-};
 
-handle_input(req_forms);
+__input = req_forms[1].querySelector(".contsct_input");
+__button = req_forms[1].querySelector(".send_data");
 
-// let macaron_select = false,
-// shells_select = false,
-// fillings_select = {
-//     "strawberrie": false,
-//     "mango": false,
-//     "baunti": false,
-//     "pistachio": false,
-// };
+__input.addEventListener('input', () => {
+    __input.value = __input.value.replace(/[^a-zA-Z0-9@\._]/g, '');
+    if (__input.value.length < 1) {
+        __input.value = "@";
+    }
+});
+
+__button.addEventListener('click', () => {
+    if (__input.value.length >= 5) {
+        // send data
+    }
+});
+
+
+gsap.set(req_forms, {display: "none"});
+
+
 
 const select_macaron = document.querySelector('.select_macaron'),
 select_shells = document.querySelector('.select_shells'),
@@ -132,6 +148,9 @@ const button_style = {
     },
 };
 
+const count_text = document.querySelector('.select_info_text');
+
+
 let data = localStorage.getItem('myData'),
 data_list = data.split(',');
 const macaron_arr = [select_macaron, ...maccaron_units];
@@ -142,6 +161,8 @@ if (data_list[0] == "true") {
     macaron_arr.forEach(item => {
         item.setAttribute('my_bool', 'true');
     });
+    _count = 2700
+    count_text.innerHTML = `${String(_count)} ₴`
 } else if (data_list[1] == "true") {
     gsap.to([select_macaron,select_strawberrie,select_mango,select_baunti,select_pistachio], button_style["normal"]);
     gsap.to(select_shells, button_style["active"]);
@@ -152,6 +173,8 @@ if (data_list[0] == "true") {
             item.setAttribute('my_bool', 'false');
         }
     });
+    _count = 1600
+    count_text.innerHTML = `${String(_count)} ₴`
 } else if (data_list[2] == "true") {
     gsap.to([select_macaron,select_shells], button_style["normal"]);
     gsap.to([select_strawberrie,select_mango,select_baunti,select_pistachio], button_style["active"]);
@@ -162,6 +185,8 @@ if (data_list[0] == "true") {
             item.setAttribute('my_bool', 'false');
         }
     });
+    _count = 1400
+    count_text.innerHTML = `${String(_count)} ₴`
 }
 
 const update_button_ui = function(macaron_unselect = false) {
@@ -177,6 +202,8 @@ const update_button_ui = function(macaron_unselect = false) {
             macaron_arr.forEach(item => {
                     item.setAttribute('my_bool', 'true');
             });
+            _count = 2700
+            count_text.innerHTML = `${String(_count)} ₴`
         } else {
             maccaron_units.forEach(unit  => {
                 if (unit.getAttribute('my_bool') == "true") {
@@ -192,24 +219,42 @@ const update_button_ui = function(macaron_unselect = false) {
 }
 
 
-const program_buttons = gsap.utils.toArray('.course_selection_point_button');
+
 
 program_buttons.forEach(button => {
     button.addEventListener('click', () => {
         if (button == select_macaron) {
             if (button.getAttribute('my_bool') == "true") {
                 button.setAttribute('my_bool', 'false');
+                _count = 0
+                count_text.innerHTML = `${String(_count)} ₴`
                 update_button_ui(true);
             } else if (button.getAttribute('my_bool') == "false") {
                 button.setAttribute('my_bool', 'true');
+                _count = 2700
+                count_text.innerHTML = `${String(_count)} ₴`
                 update_button_ui();
             }
         } else {
             if (button.getAttribute('my_bool') == "true") {
                 button.setAttribute('my_bool', 'false');
+                if (button.getAttribute('call') == "shells") {
+                    _count = _count - 1600
+                    count_text.innerHTML = `${String(_count)} ₴`
+                } else {
+                    _count = _count - 350
+                    count_text.innerHTML = `${String(_count)} ₴`
+                }
                 update_button_ui();
             } else if (button.getAttribute('my_bool') == "false") {
                 button.setAttribute('my_bool', 'true');
+                if (button.getAttribute('call') == "shells") {
+                    _count = _count + 1600
+                    count_text.innerHTML = `${String(_count)} ₴`
+                } else {
+                    _count = _count + 350
+                    count_text.innerHTML = `${String(_count)} ₴`
+                }
                 update_button_ui();
             }
         }
