@@ -67,6 +67,8 @@ _button.addEventListener('click', () => {
         }
         text = "Вибрані курси:" + selected_items_text + "\n\n" + "Вартість: " + "\n" + String(_count) + "\n" + "Номер:" + _input.value
 
+        console.log(text);
+
         fetch("https://api.telegram.org/bot7053037318:AAHGCO6ibPRXGHH2gsQrWtBej-QYKHHB0n8/sendMessage", {
             method: 'POST',
             headers: {
