@@ -20,6 +20,7 @@ CustomEase.create('easeInOutSine', 'M0,0 C0.37,0 0.63,1 1,1')
 let _count = 0;
 const program_buttons = gsap.utils.toArray('.course_selection_point_button');
 const __chat_id = 301653172;
+let selected_messenger = undefined;
 
 
 let mm = gsap.matchMedia()
@@ -56,20 +57,33 @@ _input.addEventListener('input', () => {
 req_forms[0].addEventListener('submit', (event) => {
     event.preventDefault();
     if (_input.value.length >= 12) {
-        let selected_items = program_buttons.map(item => [item.getAttribute('my_bool'), item.getAttribute('name')]);
-        let selected_items_text = '';
+        let selected_items = program_buttons.map(item => [item.getAttribute('my_bool'), item.getAttribute('name')]),
+        selected_items_text = `***НОВА ЗАЯВКА***\n\nСпосіб зв'язку:\n***${selected_messenger}***\n\nТелефон:\n***${_input.value}***\n\nВибрані курси:`,
+        to_send_user_text = "```копировать\nДоброго дня 🌸\n\nВи залишали заявку на ",
+        link = undefined
+
+        if (selected_messenger == "Viber") {
+            // link = `viber://chat?number=%2B${_input.value.replace("+", "")}`;
+            link = `https://vibr.cc/${_input.value.replace("+", "")}`
+        } else {
+            link = `https://t.me/${_input.value}`;
+        }
+        
+
         if (selected_items[0][0] == "true") {
-            selected_items_text = "\n" + selected_items[0][1];
+            selected_items_text =  selected_items_text + `\n***${selected_items[0][1]}***`;
+            to_send_user_text =  to_send_user_text + `${selected_items[0][1]}`;
         } else {
             selected_items.forEach(item => {
                 if (item[0] == "true") {
-                    selected_items_text = selected_items_text + "\n" + item[1];
+                    selected_items_text = selected_items_text + `\n***${item[1].replace(/\*\*\*/g, '\n')}***`;
+                    to_send_user_text = to_send_user_text + `${item[1].replace(/\*\*\*/g, '\n')}`;
                 }
             })
-        }
-        text = "Вибрані курси:" + selected_items_text + "\n\n" + "Вартість: " + "\n" + String(_count) + "\n" + "Номер:" + _input.value
+        };
+        to_send_user_text = to_send_user_text + "\n\nРеквізити для оплати:```" + "\n\n```UA633052990000026002006711305```" + "\n\n```копировать\nФОП Захарова Катерина\n2893702865\nНазвание банка:\nАТ КБ 'ПРИВАТБАНК'```" + "\n\n```копировать\nПризначення платежу:\nОплата уроків```";
 
-        console.log(text);
+        text = selected_items_text + "\n\n\n" + to_send_user_text + `\n\n[Посилання](${link})`;
 
         fetch("https://api.telegram.org/bot7053037318:AAHGCO6ibPRXGHH2gsQrWtBej-QYKHHB0n8/sendMessage", {
             method: 'POST',
@@ -78,7 +92,8 @@ req_forms[0].addEventListener('submit', (event) => {
             },
             body: JSON.stringify({
                 chat_id: __chat_id,
-                text: text
+                text: text,
+                parse_mode: 'Markdown'
             })
         })
         .then(response => response.json())
@@ -87,10 +102,10 @@ req_forms[0].addEventListener('submit', (event) => {
           console.error('Error:', error);
         });
 
-        // send data
     }
 });
-    
+
+
 
 
 __input = req_forms[1].querySelector(".contsct_input");
@@ -103,11 +118,51 @@ __input.addEventListener('input', () => {
     }
 });
 
-__button.addEventListener('click', () => {
+
+req_forms[1].addEventListener('submit', (event) => {
+    event.preventDefault();
     if (__input.value.length >= 5) {
-        // send data
+        let _selected_items = program_buttons.map(item => [item.getAttribute('my_bool'), item.getAttribute('name')]),
+        _selected_items_text = `***НОВА ЗАЯВКА***\n\nСпосіб зв'язку:\n***${selected_messenger}***\n\nІм'я:\n***${__input.value}***\n\nВибрані курси:`,
+        _to_send_user_text = "```копировать\nДоброго дня 🌸\n\nВи залишали заявку на ",
+        link = `https://www.instagram.com/${__input.value.replace("@", "")}/`
+        
+
+        if (_selected_items[0][0] == "true") {
+            _selected_items_text =  _selected_items_text + `\n***${_selected_items[0][1]}***`;
+            _to_send_user_text =  _to_send_user_text + `${_selected_items[0][1]}`;
+        } else {
+            _selected_items.forEach(item => {
+                if (item[0] == "true") {
+                    _selected_items_text = _selected_items_text + `\n***${item[1].replace(/\*\*\*/g, '\n')}***`;
+                    _to_send_user_text = _to_send_user_text + `${item[1].replace(/\*\*\*/g, '\n')}`;
+                }
+            })
+        };
+        _to_send_user_text = _to_send_user_text + "\n\nРеквізити для оплати:```" + "\n\n```UA633052990000026002006711305```" + "\n\n```копировать\nФОП Захарова Катерина\n2893702865\nНазвание банка:\nАТ КБ 'ПРИВАТБАНК'```" + "\n\n```копировать\nПризначення платежу:\nОплата уроків```";
+
+        _text = _selected_items_text + "\n\n\n" + _to_send_user_text + `\n\n[Посилання](${link})`;
+
+        fetch("https://api.telegram.org/bot7053037318:AAHGCO6ibPRXGHH2gsQrWtBej-QYKHHB0n8/sendMessage", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                chat_id: __chat_id,
+                text: _text,
+                parse_mode: 'Markdown'
+            })
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+
     }
 });
+    
 
 
 gsap.set(req_forms, {display: "none"});
@@ -116,16 +171,9 @@ gsap.set(req_forms, {display: "none"});
 
 const select_macaron = document.querySelector('.select_macaron'),
 select_shells = document.querySelector('.select_shells'),
-select_strawberrie = document.querySelector('.select_strawberrie'),
-select_mango = document.querySelector('.select_mango'),
-select_baunti = document.querySelector('.select_baunti'),
-select_pistachio = document.querySelector('.select_pistachio'),
+select_fills = document.querySelector('.select_fills'),
 
-maccaron_units = [select_shells,select_strawberrie,select_mango,select_baunti,select_pistachio],
-maccaron_filling_units = [select_strawberrie,select_mango,select_baunti,select_pistachio];
-
-// maccaron_bool_units = [shells_select,fillings_select["strawberrie"],fillings_select["mango"],fillings_select["baunti"],fillings_select["pistachio"]]
-
+maccaron_units = [select_shells,select_fills];
 
 
 const button_style = {
@@ -168,7 +216,7 @@ if (data_list[0] == "true") {
     _count = 2700
     count_text.innerHTML = `${String(_count)} ₴`
 } else if (data_list[1] == "true") {
-    gsap.to([select_macaron,select_strawberrie,select_mango,select_baunti,select_pistachio], button_style["normal"]);
+    gsap.to([select_macaron,select_fills], button_style["normal"]);
     gsap.to(select_shells, button_style["active"]);
     macaron_arr.forEach(item => {
         if (item == select_shells) {
@@ -181,9 +229,10 @@ if (data_list[0] == "true") {
     count_text.innerHTML = `${String(_count)} ₴`
 } else if (data_list[2] == "true") {
     gsap.to([select_macaron,select_shells], button_style["normal"]);
-    gsap.to([select_strawberrie,select_mango,select_baunti,select_pistachio], button_style["active"]);
+    gsap.to(select_fills, button_style["active"]);
+
     macaron_arr.forEach(item => {
-        if (maccaron_filling_units.includes(item)) {
+        if (item == select_fills) {
             item.setAttribute('my_bool', 'true');
         } else {
             item.setAttribute('my_bool', 'false');
@@ -191,16 +240,16 @@ if (data_list[0] == "true") {
     });
     _count = 1400
     count_text.innerHTML = `${String(_count)} ₴`
-}
+};
 
 const update_button_ui = function(macaron_unselect = false) {
     if (macaron_unselect) {
-        gsap.to([select_macaron, ...maccaron_units], button_style["normal"])
+        gsap.to(macaron_arr, button_style["normal"])
         macaron_arr.forEach(item => {
                 item.setAttribute('my_bool', 'false');
         });
     } else {
-        if (select_macaron.getAttribute('my_bool') == "true" || (select_macaron.getAttribute('my_bool') == "false" && select_shells.getAttribute('my_bool') == "true" && select_strawberrie.getAttribute('my_bool') == "true" && select_mango.getAttribute('my_bool') == "true" && select_baunti.getAttribute('my_bool') == "true" && select_pistachio.getAttribute('my_bool') == "true")) {
+        if (select_macaron.getAttribute('my_bool') == "true" || (select_macaron.getAttribute('my_bool') == "false" && select_shells.getAttribute('my_bool') == "true" && select_fills.getAttribute('my_bool') == "true")) {
             gsap.to(select_macaron, button_style["active"])
             gsap.to(maccaron_units, button_style["passive_active"])
             macaron_arr.forEach(item => {
@@ -246,7 +295,7 @@ program_buttons.forEach(button => {
                     _count = _count - 1600
                     count_text.innerHTML = `${String(_count)} ₴`
                 } else {
-                    _count = _count - 350
+                    _count = _count - 1400
                     count_text.innerHTML = `${String(_count)} ₴`
                 }
                 update_button_ui();
@@ -256,7 +305,7 @@ program_buttons.forEach(button => {
                     _count = _count + 1600
                     count_text.innerHTML = `${String(_count)} ₴`
                 } else {
-                    _count = _count + 350
+                    _count = _count + 1400
                     count_text.innerHTML = `${String(_count)} ₴`
                 }
                 update_button_ui();
@@ -280,6 +329,7 @@ let input = gsap.utils.toArray('.contsct_input')
 user_data_select.forEach(button => {
     button.addEventListener('click', () => {
         if (button == user_data_select[0]) {
+            selected_messenger = button.getAttribute('type');
             gsap.to(button, button_style["active"]);
             gsap.to([user_data_select[1], user_data_select[2]], button_style["normal"])
 
@@ -289,6 +339,7 @@ user_data_select.forEach(button => {
             gsap.to('.name_form', {autoAlpha: 1, duration: .2});
 
         } else if (button == user_data_select[1]) {
+            selected_messenger = button.getAttribute('type');
             gsap.to(button, button_style["active"]);
             gsap.to([user_data_select[0], user_data_select[2]], button_style["normal"])
 
@@ -298,6 +349,7 @@ user_data_select.forEach(button => {
             gsap.to('.tel_form', {autoAlpha: 1, duration: .2});
 
         } else if (button == user_data_select[2]) {
+            selected_messenger = button.getAttribute('type');
             gsap.to(button, button_style["active"]);
             gsap.to([user_data_select[0], user_data_select[1]], button_style["normal"])
 
