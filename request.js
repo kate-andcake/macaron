@@ -59,7 +59,7 @@ req_forms[0].addEventListener('submit', (event) => {
     if (_input.value.length >= 12) {
         let selected_items = program_buttons.map(item => [item.getAttribute('my_bool'), item.getAttribute('name')]),
         selected_items_text = `***НОВА ЗАЯВКА***\n\nСпосіб зв'язку:\n***${selected_messenger}***\n\nТелефон:\n***${_input.value}***\n\nВибрані курси:`,
-        to_send_user_text = "`\nДоброго дня 🌸\n\nВи залишали заявку на ",
+        to_send_user_text = "\n`Доброго дня 🌸\n\nВи залишали заявку на ",
         link = undefined
 
         if (selected_messenger == "Viber") {
@@ -126,7 +126,7 @@ req_forms[1].addEventListener('submit', (event) => {
     if (__input.value.length >= 5) {
         let _selected_items = program_buttons.map(item => [item.getAttribute('my_bool'), item.getAttribute('name')]),
         _selected_items_text = `***НОВА ЗАЯВКА***\n\nСпосіб зв'язку:\n***${selected_messenger}***\n\nІм'я:\n***${__input.value}***\n\nВибрані курси:`,
-        _to_send_user_text = "`\nДоброго дня 🌸\n\nВи залишали заявку на ",
+        _to_send_user_text = "\n`Доброго дня 🌸\n\nВи залишали заявку на ",
         link = `https://www.instagram.com/${__input.value.replace("@", "")}/`
         
 
