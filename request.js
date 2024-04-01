@@ -102,6 +102,8 @@ req_forms[0].addEventListener('submit', (event) => {
           console.error('Error:', error);
         });
 
+        window.location.href = 'success.html';
+
     }
 });
 
@@ -159,6 +161,8 @@ req_forms[1].addEventListener('submit', (event) => {
         .catch((error) => {
           console.error('Error:', error);
         });
+
+        window.location.href = 'success.html';
 
     }
 });
