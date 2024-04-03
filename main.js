@@ -523,3 +523,17 @@ social_link.addEventListener('click', function() {
 });
 
 
+
+
+if(localStorage.getItem("counter") === null) {
+    localStorage.setItem("counter", 0);
+}
+
+let counter = localStorage.getItem("counter");
+
+window.onload = function() {
+    counter++;
+    localStorage.setItem("counter", counter);
+};
+
+
