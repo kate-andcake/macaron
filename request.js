@@ -81,7 +81,8 @@ req_forms[0].addEventListener('submit', (event) => {
                 }
             })
         };
-        to_send_user_text = to_send_user_text + "\n\nРеквізити для оплати:`" + "\n\n\n`UA633052990000026002006711305`" + "\n\n\n`ФОП Захарова Катерина\n2893702865\nНазвание банка:\nАТ КБ 'ПРИВАТБАНК'`" + "\n\n\n`Призначення платежу:\nОплата уроків`";
+        let count_string = `\n\nВартість: ${String(_count)} грн`;
+        to_send_user_text = to_send_user_text + count_string + "\n\nРеквізити для оплати:`" + "\n\n\n`UA633052990000026002006711305`" + "\n\n\n`ФОП Захарова Катерина\n2893702865\nНазвание банка:\nАТ КБ 'ПРИВАТБАНК'`" + "\n\n\n`Призначення платежу:\nОплата уроків`";
 
         text = selected_items_text + "\n\n\n" + to_send_user_text + `\n\n[Посилання](${link})`;
 
@@ -141,7 +142,8 @@ req_forms[1].addEventListener('submit', (event) => {
                 }
             })
         };
-        _to_send_user_text = _to_send_user_text + "\n\nРеквізити для оплати:`" + "\n\n\n`UA633052990000026002006711305`" + "\n\n\n`ФОП Захарова Катерина\n2893702865\nНазвание банка:\nАТ КБ 'ПРИВАТБАНК'`" + "\n\n\n`Призначення платежу:\nОплата уроків`";
+        let = count_string = `\n\nВартість: ${String(_count)} грн`;
+        _to_send_user_text = _to_send_user_text + count_string + "\n\nРеквізити для оплати:`" + "\n\n\n`UA633052990000026002006711305`" + "\n\n\n`ФОП Захарова Катерина\n2893702865\nНазвание банка:\nАТ КБ 'ПРИВАТБАНК'`" + "\n\n\n`Призначення платежу:\nОплата уроків`";
 
         _text = _selected_items_text + "\n\n\n" + _to_send_user_text + `\n\n[Посилання](${link})`;
 
